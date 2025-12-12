@@ -1,0 +1,223 @@
+/* ---------- GLOBAL STYLING ---------- */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #a8c0ff, #3f2b96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Fade-in animation for whole page */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+  width: 90%;
+  max-width: 450px;
+  background: linear-gradient(145deg, #ffffff, #e9f1ff);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+  text-align: center;
+  transform: translateY(0);
+  animation: floatUp 0.8s ease-out;
+}
+
+/* Smooth float-up animation */
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+/* ---------- INPUT AREA ---------- */
+.todo-input {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #6ea8fe;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.todo-input input:focus {
+  border-color: #3f7dfc;
+  box-shadow: 0 0 8px rgba(63, 125, 252, 0.4);
+}
+
+.todo-input button {
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #4a90e2, #007bff);
+  color: white;
+  border: none;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.todo-input button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0069d9, #0056b3);
+}
+
+/* ---------- TODO LIST ---------- */
+.todo-list {
+  margin-top: 25px;
+}
+
+/* Motion gesture: slide-in animation */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #eef5ff;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  border-left: 6px solid #007bff;
+  animation: slideIn 0.4s ease;
+  transition: 0.25s ease;
+}
+
+/* Hover lift effect */
+.todo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.todo-item span {
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.save-btn,
+.delete-btn {
+  border: none;
+  padding: 7px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.edit-btn { background: #ffc107; }
+.edit-btn:hover { background: #e0a800; transform: scale(1.1); }
+
+.save-btn { background: #4caf50; color: white; }
+.save-btn:hover { background: #388e3c; transform: scale(1.1); }
+
+.delete-btn { background: #f44336; color: white; }
+.delete-btn:hover { background: #d32f2f; transform: scale(1.1); }
+
+/* ---------- EDIT INPUT ---------- */
+.edit-input {
+  flex: 1;
+  padding: 7px;
+  font-size: 15px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  margin-left: 10px;
+  transition: 0.3s ease;
+}
+
+.edit-input:focus {
+  box-shadow: 0 0 8px rgba(0,123,255,0.4);
+}
+.todo-content {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+}
+/* Make entire layout fixed & centered */
+body {
+  height: 100vh;
+  overflow: hidden; /* Prevent page from scrolling */
+}
+
+/* Scroll only inside todo list */
+.todo-list {
+  margin-top: 20px;
+  max-height: 55vh;  /* Adjust height as you like */
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Optional: better styled scrollbar */
+.todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background: #90caf9;
+  border-radius: 10px;
+}
+.category-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  margin-top: 4px;
+  background-color: #6c5ce7; /* Default color for General */
+}
+
+/* Optional: different colors per category using classes */
+.category-badge.General { background-color: #6c5ce7; }
+.category-badge.Work { background-color: #ff7675; }
+.category-badge.Personal { background-color: #55efc4; }
+.category-badge.Study { background-color: #fdcb6e; }
+
+.category-select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #90caf9;
+  background: white;
+  font-size: 14px;
+}
